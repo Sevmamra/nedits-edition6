@@ -5,16 +5,29 @@ AOS.init();
 // Typewriter Effect — Hero Section
 // ==============================
 document.addEventListener('DOMContentLoaded', () => {
-  const typedText = document.getElementById('typed-text');
-  const cursor = document.querySelector('.cursor');
-  const fullText = "Welcome to Nedits Edition";
-  let index = 0;
+  const line1 = document.getElementById('typed-text-line1');
+  const line2 = document.getElementById('typed-text-line2');
+  const line3 = document.getElementById('typed-text-line3');
+
+  const textLines = ["Welcome", "to", "Nedits Edition"];
+  const elements = [line1, line2, line3];
+
+  let currentLine = 0;
+  let charIndex = 0;
 
   function typeNextChar() {
-    if (index < fullText.length) {
-      typedText.textContent += fullText.charAt(index);
-      index++;
+    if (currentLine >= textLines.length) return;
+
+    const currentText = textLines[currentLine];
+    elements[currentLine].textContent += currentText.charAt(charIndex);
+    charIndex++;
+
+    if (charIndex < currentText.length) {
       setTimeout(typeNextChar, 100);
+    } else {
+      currentLine++;
+      charIndex = 0;
+      setTimeout(typeNextChar, 300);
     }
   }
 
