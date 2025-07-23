@@ -15,10 +15,11 @@ body {
 }
 
 /* ======================================
-   Header (PC / Laptop / iPad)
+   Header
 ====================================== */
 header {
-  background: linear-gradient(45deg, #ff6a00, #ee0979);
+  background: url('../images/red-wave-header.png') no-repeat center center;
+  background-size: cover;
   padding: 0 10px;
   color: #fff;
   text-align: center;
@@ -58,18 +59,9 @@ header {
 }
 
 /* ======================================
-   Header — Mobile (max-width: 767px)
+   Responsive Header
 ====================================== */
 @media (max-width: 767px) {
-  header {
-    padding: 10px;
-  }
-
-  .header-container {
-    gap: 8px;
-    padding: 5px 0;
-  }
-
   .logo {
     height: 95px;
     top: 12px;
@@ -92,28 +84,85 @@ header {
 }
 
 /* ======================================
-   Navigation
+   Navigation Bar
 ====================================== */
 nav {
-  background-color: #222;
+  background-color: #000;
   display: flex;
-  justify-content: center;
-  gap: 20px;
-  padding: 12px 0;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
   position: sticky;
   top: 0;
-  z-index: 100;
+  z-index: 1000;
 }
 
-nav a {
-  color: #f2f2f2;
+.nav-links {
+  display: flex;
+  gap: 24px;
+}
+
+.nav-links a {
+  color: #fff;
   text-decoration: none;
-  font-weight: 500;
+  font-weight: 600;
   transition: 0.3s;
 }
 
-nav a:hover {
+.nav-links a:hover {
   color: #ee0979;
+}
+
+/* Hamburger Icon */
+.hamburger-btn {
+  width: 40px;
+  height: 40px;
+  background: #fff;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.hamburger-btn span {
+  width: 20px;
+  height: 2px;
+  background: #000;
+  margin: 3px 0;
+}
+
+/* Mobile Nav Dropdown */
+.mobile-nav {
+  display: none;
+  flex-direction: column;
+  background: #111;
+  padding: 20px;
+  text-align: center;
+}
+
+.mobile-nav a {
+  color: #fff;
+  padding: 10px 0;
+  text-decoration: none;
+  font-weight: 500;
+  border-bottom: 1px solid #333;
+}
+
+.mobile-nav.show {
+  display: flex;
+}
+
+/* Hide hamburger on desktop */
+@media (min-width: 768px) {
+  .hamburger-btn {
+    display: none;
+  }
+
+  .mobile-nav {
+    display: none !important;
+  }
 }
 
 /* ======================================
@@ -127,25 +176,41 @@ nav a:hover {
   text-align: center;
   color: #fff;
   position: relative;
-  transition: background-image 1s ease-in-out;
   overflow: hidden;
 }
 
-/* Note: hero-bg not used in HTML but leaving it here */
-.hero-bg::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.4);
+.hero-overlay {
+  position: relative;
+  z-index: 2;
 }
 
-.hero-title-img {
-  height: 360px;
-  margin: -150px auto 20px auto;
-  display: block;
+/* Typewriter Animation */
+.typed-heading {
+  font-size: 38px;
+  font-weight: 700;
+  color: #3300cc;
+  margin-bottom: 10px;
+}
+
+.cursor {
+  display: inline-block;
+  background: none;
+  color: #3300cc;
+  animation: blink 0.7s steps(1) infinite;
+  font-weight: bold;
+  font-size: 38px;
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.subheading {
+  font-size: 20px;
+  font-weight: 600;
+  color: #333;
+  margin-top: 10px;
 }
 
 .explore-btn {
@@ -167,7 +232,7 @@ nav a:hover {
 }
 
 /* ======================================
-   Section Headings
+   Section General
 ====================================== */
 .section {
   padding: 70px 20px;
@@ -185,7 +250,7 @@ nav a:hover {
 }
 
 /* ======================================
-   Services Section
+   Services
 ====================================== */
 .services {
   display: flex;
@@ -226,18 +291,8 @@ nav a:hover {
   line-height: 1.6;
 }
 
-/* Extra: For JS .show and .active class usage */
-.service-card.show {
-  opacity: 1;
-  transform: scale(1.03);
-}
-
-.service-card.active {
-  border: 2px solid #7b0091;
-}
-
 /* ======================================
-   About Us Section
+   About Us
 ====================================== */
 .about-box {
   background: #fff;
@@ -254,7 +309,7 @@ nav a:hover {
 }
 
 /* ======================================
-   Testimonials Section
+   Testimonials
 ====================================== */
 .testimonial {
   background: #fff;
@@ -296,7 +351,7 @@ nav a:hover {
 }
 
 /* ======================================
-   Contact Form Section
+   Contact Form
 ====================================== */
 .contact-form {
   background: #fff;
@@ -332,7 +387,7 @@ form textarea {
 }
 
 /* ======================================
-   Footer Section
+   Footer
 ====================================== */
 footer {
   background: #222;
@@ -369,7 +424,7 @@ footer {
 }
 
 /* ======================================
-   AOS Animations Defaults
+   AOS Fallback Opacity Animation
 ====================================== */
 [data-aos] {
   opacity: 0;
