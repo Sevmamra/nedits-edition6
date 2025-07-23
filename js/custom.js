@@ -2,26 +2,35 @@
 AOS.init();
 
 // ==============================
-// Typewriter Effect — About Us
+// Typewriter Effect — Hero Section
 // ==============================
 document.addEventListener('DOMContentLoaded', () => {
-  const about = document.getElementById('about-text');
-  const fullText = about.textContent;
-  about.textContent = '';
-  let i = 0;
+  const typedText = document.getElementById('typed-text');
+  const cursor = document.querySelector('.cursor');
+  const fullText = "Welcome to Nedits Edition";
+  let index = 0;
 
-  function typeWriter() {
-    if (i < fullText.length) {
-      about.textContent += fullText.charAt(i++);
-      setTimeout(typeWriter, 25);
+  function typeNextChar() {
+    if (index < fullText.length) {
+      typedText.textContent += fullText.charAt(index);
+      index++;
+      setTimeout(typeNextChar, 100);
     }
   }
 
-  typeWriter();
+  typeNextChar();
 });
 
 // ==============================
-// Hero Section — Slideshow Random
+// Mobile Navigation Toggle
+// ==============================
+document.getElementById('menu-toggle').addEventListener('click', () => {
+  const nav = document.getElementById('mobileNav');
+  nav.classList.toggle('show');
+});
+
+// ==============================
+// Hero Section — Background Randomizer
 // ==============================
 (() => {
   const hero = document.querySelector('.hero');
@@ -47,12 +56,11 @@ document.addEventListener('DOMContentLoaded', () => {
 })();
 
 // ==============================
-// Service Cards — Scroll & Click
+// Services Reveal on Scroll & Click Highlight
 // ==============================
 (() => {
   const cards = document.querySelectorAll('.service-card');
 
-  // Reveal on scroll
   window.addEventListener('scroll', () => {
     cards.forEach(card => {
       if (card.getBoundingClientRect().top < window.innerHeight - 50) {
@@ -61,7 +69,6 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   });
 
-  // Click highlight effect
   cards.forEach(card => {
     card.addEventListener('click', () => {
       cards.forEach(c => c.classList.remove('active'));
