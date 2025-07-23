@@ -12,27 +12,6 @@ body {
   background: #f4f4f4;
   color: #333;
   scroll-behavior: smooth;
-  position: relative;
-  z-index: 1;
-}
-
-/* ======================================
-   Background Video Layer
-====================================== */
-.video-bg {
-  position: fixed;
-  top: 0;
-  left: 0;
-  height: 100vh;
-  width: 100%;
-  z-index: -1;
-  overflow: hidden;
-}
-
-.video-bg video {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
 }
 
 /* ======================================
@@ -141,18 +120,26 @@ nav a:hover {
    Hero Section
 ====================================== */
 .hero {
+  background: url('../images/hero-bg1.jpg') no-repeat center center;
+  background-size: cover;
   height: 550px;
   padding: 100px 20px;
   text-align: center;
   color: #fff;
   position: relative;
+  transition: background-image 1s ease-in-out;
   overflow: hidden;
 }
 
-.hero-overlay {
+/* Note: hero-bg not used in HTML but leaving it here */
+.hero-bg::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   background: rgba(0, 0, 0, 0.4);
-  padding: 40px 20px;
-  border-radius: 10px;
 }
 
 .hero-title-img {
@@ -239,6 +226,7 @@ nav a:hover {
   line-height: 1.6;
 }
 
+/* Extra: For JS .show and .active class usage */
 .service-card.show {
   opacity: 1;
   transform: scale(1.03);
