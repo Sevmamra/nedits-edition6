@@ -28,52 +28,53 @@ header {
 
 .header-container {
   display: flex;
-  align-items: center;
-  justify-content: flex-start; /* align left */
-  gap: 10px;
-  padding: 10px 15px;
+  align-items: flex-start;
+  justify-content: flex-start;
+  padding: 0;
+  position: relative;
 }
 
 .logo-wrapper {
   position: relative;
-  width: 100px;
-  height: 100px;
+  width: 140px;
+  height: 140px;
+  overflow: hidden;
+  margin-left: -15px;
+  margin-top: -20px;
 }
 
 .logo-bg {
   position: absolute;
   top: 0;
   left: 0;
-  height: 100px;
+  height: 180px;
   z-index: 1;
 }
 
 .logo {
   position: absolute;
-  top: 10px;
-  left: 10px;
+  top: 35px;
+  left: 35px;
   height: 80px;
   z-index: 2;
 }
 
-/* Header Title Image */
-.header-title-img {
-  height: 95px;
-  position: relative;
-  top: -2px;
-  left: 0;
+.header-title-area {
+  margin-top: 20px;
+  margin-left: 10px;
 }
 
-/* Tagline */
+.header-title-img {
+  height: 95px;
+}
+
 .tagline {
-  font-size: 15px;
+  font-size: 14px;
   font-weight: 500;
-  margin-top: -5px;
-  letter-spacing: 0.5px;
-  position: relative;
-  top: -10px;
-  text-align: left;
-  margin-left: 130px;
+  margin-top: -4px;
+  letter-spacing: 0.3px;
+  color: #fff;
+  white-space: nowrap;
 }
 
 /* ======================================
@@ -117,18 +118,29 @@ nav {
 
 .nav-links {
   display: flex;
-  gap: 24px;
+  justify-content: center;
+  align-items: center;
+  gap: 14px;
+  margin: auto;
+  flex: 1;
 }
 
 .nav-links a {
   color: #fff;
   text-decoration: none;
   font-weight: 600;
-  transition: 0.3s;
+  position: relative;
 }
 
-.nav-links a:hover {
-  color: #ee0979;
+.nav-links a::after {
+  content: '|';
+  color: #fff;
+  margin: 0 10px;
+}
+
+.nav-links a:last-child::after {
+  content: '';
+  margin: 0;
 }
 
 /* Hamburger Icon */
