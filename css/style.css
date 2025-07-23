@@ -17,9 +17,9 @@ body {
 /* ======================================
    Header
 ====================================== */
+/* Header */
 header {
-  background: url('../images/red-wave-header.png') no-repeat center center;
-  background-size: cover;
+  background: linear-gradient(45deg, #ff6a00, #ee0979);
   padding: 0 10px;
   color: #fff;
   text-align: center;
@@ -28,27 +28,43 @@ header {
 
 .header-container {
   display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  gap: 5px;
-  padding: 2px 0;
+  align-items: center;
+  justify-content: flex-start; /* align left */
+  gap: 10px;
+  padding: 10px 15px;
+}
+
+.logo-wrapper {
   position: relative;
+  width: 100px;
+  height: 100px;
+}
+
+.logo-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100px;
+  z-index: 1;
 }
 
 .logo {
-  height: 70px;
-  position: relative;
+  position: absolute;
   top: 10px;
-  right: -13px;
+  left: 10px;
+  height: 80px;
+  z-index: 2;
 }
 
+/* Header Title Image */
 .header-title-img {
   height: 95px;
   position: relative;
   top: -2px;
-  left: -3px;
+  left: 0;
 }
 
+/* Tagline */
 .tagline {
   font-size: 15px;
   font-weight: 500;
@@ -56,6 +72,8 @@ header {
   letter-spacing: 0.5px;
   position: relative;
   top: -10px;
+  text-align: left;
+  margin-left: 130px;
 }
 
 /* ======================================
@@ -115,8 +133,8 @@ nav {
 
 /* Hamburger Icon */
 .hamburger-btn {
-  width: 40px;
-  height: 40px;
+  width: 44px;
+  height: 44px;
   background: #fff;
   border-radius: 50%;
   display: flex;
@@ -124,6 +142,7 @@ nav {
   justify-content: center;
   align-items: center;
   cursor: pointer;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.2);
 }
 
 .hamburger-btn span {
@@ -225,6 +244,7 @@ nav {
   box-shadow: 0 4px 12px rgba(255, 0, 0, 0.4);
   display: inline-block;
   margin: 50px auto 0 auto;
+  margin-top: 80px;
 }
 
 .explore-btn:hover {
